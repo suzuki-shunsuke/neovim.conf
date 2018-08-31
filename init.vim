@@ -4,11 +4,11 @@ if &compatible
 endif
 
 augroup MyAutoCmd
-    " initializing
-    " prevent from duplicate command definition at reloading
-    autocmd!
-    " when entering buffer on the terminal mode, switch to the terminal mode
-    au BufEnter term://* startinsert
+  " initializing
+  " prevent from duplicate command definition at reloading
+  autocmd!
+  " when entering buffer on the terminal mode, switch to the terminal mode
+  au BufEnter term://* startinsert
 augroup END
 
 " pyenv support
