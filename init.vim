@@ -163,6 +163,9 @@ let g:typescript_indent_disable = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
+" vim-go
+let g:go_fmt_options = '-s'
+
 " diff color settings
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
