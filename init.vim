@@ -70,6 +70,7 @@ nnoremap ,l :Denite -mode=normal file<cr><esc>
 nnoremap ,d :Denite -mode=normal directory_mru<cr>
 nnoremap ,g :Denite -mode=normal ghq<cr>
 nnoremap ,/ :Denite -mode=normal grep<cr>
+nnoremap ,jq :% ! jq '.'<cr>
 
 " define the command to reload init.vim
 command! R source ~/.config/nvim/init.vim
