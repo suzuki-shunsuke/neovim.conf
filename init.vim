@@ -175,3 +175,9 @@ highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
 highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
+
+" fzf
+" set rtp+=/usr/local/opt/fzf
+
+" hcl terraform
+let g:terraform_fmt_on_save = 1

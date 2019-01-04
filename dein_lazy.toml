@@ -58,3 +58,11 @@ on_ft = ['markdown']
 # [[plugins]]
 # repo = 'elzr/vim-json'
 # on_ft = ['json']
+
+# [[plugins]]
+# repo = 'fatih/vim-hclfmt'
+# on_ft = ['hcl']
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['hcl', 'tf']
