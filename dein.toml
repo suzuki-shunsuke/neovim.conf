@@ -29,7 +29,7 @@ repo = 'tpope/vim-surround'
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
-repo = 'suzuki-shunsuke/denite-directory_mru-source'
+repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'Jagua/vim-denite-ghq'

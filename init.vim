@@ -45,6 +45,10 @@ endif
 
 "End dein Scripts-------------------------
 
+" solarized
+set background=dark
+colorscheme solarized
+
 " set shiftwidth=4
 set number
 set ruler
@@ -67,7 +71,7 @@ call denite#custom#var('grep', 'final_opts', [])
 nnoremap ,f :Denite -mode=normal file_mru<cr><esc>
 nnoremap ,b :Denite -mode=normal buffer<cr><esc>
 nnoremap ,l :Denite -mode=normal file<cr><esc>
-nnoremap ,d :Denite -mode=normal directory_mru<cr>
+" nnoremap ,d :Denite -mode=normal directory_mru<cr>
 nnoremap ,g :Denite -mode=normal ghq<cr>
 nnoremap ,/ :Denite -mode=normal grep<cr>
 nnoremap ,jq :% ! jq '.'<cr>
