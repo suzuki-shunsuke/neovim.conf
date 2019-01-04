@@ -28,5 +28,8 @@ repo = 'Shougo/denite.nvim'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
-[[plugins]]
-repo = 'Jagua/vim-denite-ghq'
+# [[plugins]]
+# repo = 'Jagua/vim-denite-ghq'
+
+# [[plugins]]
+# repo = 'junegunn/fzf.vim'
