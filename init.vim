@@ -141,7 +141,7 @@ nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
 
 " gtags
-nnoremap <C-s> :Gtags
+" nnoremap <C-s> :Gtags
 
 " jedi-vim
 " let g:jedi#completions_command = '<Tab>'
