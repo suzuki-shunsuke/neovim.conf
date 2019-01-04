@@ -161,7 +161,7 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 " typescript
 " https://github.com/leafgarland/typescript-vim#indenting
-let g:typescript_indent_disable = 1
+" let g:typescript_indent_disable = 1
 
 " markdown
 let g:vim_markdown_folding_disabled = 1
