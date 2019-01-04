@@ -92,39 +92,39 @@ inoremap <silent><expr><Down>   pumvisible() ? "\<C-n>"  : "\<Down>"
 inoremap <silent><expr><Tab>    pumvisible() ? "\<C-n>".deoplete#mappings#close_popup() : "\<Tab>"
 
 " neoterm
-let g:neoterm_position = 'horizontal'
-let g:neoterm_automap_keys = ',tt'
+" let g:neoterm_position = 'horizontal'
+" let g:neoterm_automap_keys = ',tt'
 
 " Ctrl + O : switch the terminal mode to normal mode
-tnoremap <silent> <C-o> <C-\><C-n>
-tnoremap <C-w>h <C-\><C-N><C-w>h
-tnoremap <C-w>j <C-\><C-N><C-w>j
-tnoremap <C-w>k <C-\><C-N><C-w>k
-tnoremap <C-w>l <C-\><C-N><C-w>l
+" tnoremap <silent> <C-o> <C-\><C-n>
+" tnoremap <C-w>h <C-\><C-N><C-w>h
+" tnoremap <C-w>j <C-\><C-N><C-w>j
+" tnoremap <C-w>k <C-\><C-N><C-w>k
+" tnoremap <C-w>l <C-\><C-N><C-w>l
 " C-z : to background
-tnoremap <C-z> <C-\><C-N><C-z>
-tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
-tnoremap <C-b> <C-\><C-N>:Denite -mode=normal buffer<cr><esc>
-tnoremap <C-d> <C-\><C-N>:Denite -mode=normal directory_mru<cr>
-tnoremap <C-g> <C-\><C-N>:Denite -mode=normal ghq<cr>
-tnoremap <C-u> <C-\><C-N><C-b>
+" tnoremap <C-z> <C-\><C-N><C-z>
+" tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
+" tnoremap <C-b> <C-\><C-N>:Denite -mode=normal buffer<cr><esc>
+" tnoremap <C-d> <C-\><C-N>:Denite -mode=normal directory_mru<cr>
+" tnoremap <C-g> <C-\><C-N>:Denite -mode=normal ghq<cr>
+" tnoremap <C-u> <C-\><C-N><C-b>
 
-nnoremap <silent> <f10> :TREPLSendFile<cr>
-nnoremap <silent> <f9> :TREPLSendLine<cr>
-vnoremap <silent> <f9> :TREPLSendSelection<cr>
+" nnoremap <silent> <f10> :TREPLSendFile<cr>
+" nnoremap <silent> <f9> :TREPLSendLine<cr>
+" vnoremap <silent> <f9> :TREPLSendSelection<cr>
 
 " command! -nargs=1 -complete=dir Tcd call TBcd("<args>")
 " tnoremap <C-i> <C-\><C-N> :Tcd 
 
 " Useful maps
-nnoremap <silent> ,to :Topen<cr>
-nnoremap <silent> ,tt :Ttoggle<cr>
+" nnoremap <silent> ,to :Topen<cr>
+" nnoremap <silent> ,tt :Ttoggle<cr>
 " hide/close terminal
-nnoremap <silent> ,th :call neoterm#close()<cr>
+" nnoremap <silent> ,th :call neoterm#close()<cr>
 " clear terminal
-nnoremap <silent> ,tl :call neoterm#clear()<cr>
+" nnoremap <silent> ,tl :call neoterm#clear()<cr>
 " kills the current job (send a <c-c>)
-nnoremap <silent> ,tc :call neoterm#kill()<cr>
+" nnoremap <silent> ,tc :call neoterm#kill()<cr>
 
 " Rails commands
 " command! Troutes :T rake routes
@@ -132,7 +132,7 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " command! Tmigrate :T rake db:migrate
 
 " Git commands
-command! -nargs=+ Tg :T git <args>
+" command! -nargs=+ Tg :T git <args>
 
 " change the window size
 nnoremap <S-Left>  <C-w>><CR>
