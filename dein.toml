@@ -33,3 +33,23 @@ repo = 'altercation/vim-colors-solarized'
 
 # [[plugins]]
 # repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+# https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+# https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+# https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+# https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+# https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+repo = 'natebosch/vim-lsc'

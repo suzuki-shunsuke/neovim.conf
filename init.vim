@@ -181,3 +181,18 @@ highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 
 " hcl terraform
 let g:terraform_fmt_on_save = 1
+
+" https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Go
+" vim-lsp gopls
+" if executable('gopls')
+"   au User lsp_setup call lsp#register_server({
+"     \ 'name': 'gopls',
+"     \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+"     \ 'whitelist': ['go'],
+"     \ })
+"   autocmd BufWritePre *.go LspDocumentFormatSync
+" endif
+
+" go lsp
+" https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+let g:lsp_async_completion = 1
