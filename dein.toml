@@ -53,3 +53,7 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 [[plugins]]
 # https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
 repo = 'natebosch/vim-lsc'
+
+[[plugins]]
+# https://qiita.com/takaakikasai/items/0d617b6e0aed490dff35
+repo = 'rickhowe/diffchar.vim'

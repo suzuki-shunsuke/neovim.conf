@@ -2,8 +2,12 @@
 # repo  = 'stephpy/vim-yaml'
 # on_ft = ['yaml']
 
+# [[plugins]]
+# repo  = 'fatih/vim-go'
+# on_ft = ['go']
+
 [[plugins]]
-repo  = 'fatih/vim-go'
+repo  = 'mattn/vim-goimports'
 on_ft = ['go']
 
 # [[plugins]]

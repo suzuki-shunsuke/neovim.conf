@@ -67,6 +67,8 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action')
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> s
+  \ denite#do_map('do_action', 'split')
   nnoremap <silent><buffer><expr> v
   \ denite#do_map('do_action', 'vsplit')
   nnoremap <silent><buffer><expr> p
@@ -85,8 +87,8 @@ function! s:denite_filter_my_settings() abort
 endfunction
 
 " Change matchers.
-call denite#custom#source(
-\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+" call denite#custom#source(
+" \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
 call denite#custom#source(
 \ 'file/rec', 'matchers', ['matcher/cpsm'])
 
