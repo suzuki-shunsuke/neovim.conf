@@ -18,30 +18,69 @@ augroup END
 " $ pip install neovim jedi
 let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim/bin/python'
 
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/vim-plug')
 
-" Required:
-set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
+" Make sure you use single quotes
 
-" Required:
-if dein#load_state('~/.local/share/dein')
-  call dein#begin('~/.local/share/dein')
-  let s:toml_dir = '~/.config/nvim/'
-  call dein#load_toml(s:toml_dir . 'dein.toml', {'lazy': 0})
-  call dein#load_toml(s:toml_dir . 'dein_lazy.toml', {'lazy': 1})
+Plug 'itchyny/lightline.vim'
+Plug 'mattn/webapi-vim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neomru.vim'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/denite.nvim'
+Plug 'altercation/vim-colors-solarized'
+" https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'natebosch/vim-lsc'
+" https://qiita.com/takaakikasai/items/0d617b6e0aed490dff35
+Plug 'rickhowe/diffchar.vim'
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" On-demand loading
+Plug 'mattn/vim-goimports', { 'for': 'go' }
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+" Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+" Plug 'Shougo/deoplete-rct', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
+
+" Initialize plugin system
+call plug#end()
+
+" " Required:
+" set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
+" 
+" " Required:
+" if dein#load_state('~/.local/share/dein')
+"   call dein#begin('~/.local/share/dein')
+"   let s:toml_dir = '~/.config/nvim/'
+"   call dein#load_toml(s:toml_dir . 'dein.toml', {'lazy': 0})
+"   call dein#load_toml(s:toml_dir . 'dein_lazy.toml', {'lazy': 1})
+" 
+"   " Required:
+"   call dein#end()
+"   call dein#save_state()
+" endif
 
 " Required:
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+" " If you want to install not installed plugins on startup.
+" if dein#check_install()
+"   call dein#install()
+" endif
 
 "End dein Scripts-------------------------
 
@@ -117,15 +156,15 @@ command! R source ~/.config/nvim/init.vim
 
 " deoplete-jedi
 " https://github.com/zchee/deoplete-jedi#options
-let g:deoplete#sources#jedi#python_path = $PYENV_ROOT . '/versions/neovim/bin/python'
+" let g:deoplete#sources#jedi#python_path = $PYENV_ROOT . '/versions/neovim/bin/python'
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " deoplete key mapping
-inoremap <silent><expr><Up>     pumvisible() ? "\<C-p>"  : "\<Up>"
-inoremap <silent><expr><Down>   pumvisible() ? "\<C-n>"  : "\<Down>"
-inoremap <silent><expr><Tab>    pumvisible() ? deoplete#close_popup() : "\<Tab>"
+" inoremap <silent><expr><Up>     pumvisible() ? "\<C-p>"  : "\<Up>"
+" inoremap <silent><expr><Down>   pumvisible() ? "\<C-n>"  : "\<Down>"
+" inoremap <silent><expr><Tab>    pumvisible() ? deoplete#close_popup() : "\<Tab>"
 
 " neoterm
 " let g:neoterm_position = 'horizontal'
