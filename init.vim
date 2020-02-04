@@ -25,12 +25,16 @@ call plug#begin('~/.local/share/vim-plug')
 
 " Make sure you use single quotes
 
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'kassio/neoterm'
 Plug 'itchyny/lightline.vim'
 Plug 'mattn/webapi-vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neomru.vim'
 Plug 'tpope/vim-surround'
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'altercation/vim-colors-solarized'
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
 Plug 'prabirshrestha/async.vim'
@@ -170,12 +174,14 @@ command! R source ~/.config/nvim/init.vim
 " let g:neoterm_position = 'horizontal'
 " let g:neoterm_automap_keys = ',tt'
 
+tnoremap <silent> <ESC> <C-\><C-n>
+
 " Ctrl + O : switch the terminal mode to normal mode
 " tnoremap <silent> <C-o> <C-\><C-n>
-" tnoremap <C-w>h <C-\><C-N><C-w>h
-" tnoremap <C-w>j <C-\><C-N><C-w>j
-" tnoremap <C-w>k <C-\><C-N><C-w>k
-" tnoremap <C-w>l <C-\><C-N><C-w>l
+tnoremap <C-w>h <C-\><C-N><C-w>h
+tnoremap <C-w>j <C-\><C-N><C-w>j
+tnoremap <C-w>k <C-\><C-N><C-w>k
+tnoremap <C-w>l <C-\><C-N><C-w>l
 " C-z : to background
 " tnoremap <C-z> <C-\><C-N><C-z>
 " tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
