@@ -102,7 +102,6 @@ set hidden  " allow not to save the buffer before switch the buffer
 " disable to switch the mode when select with the mouse
 set mouse-=a
 
-
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -147,6 +146,18 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
+function! VsplitTerm()
+  vsplit term://zsh
+  set nonumber
+endfunction
+
+function! SplitTerm()
+  split term://zsh
+  set nonumber
+endfunction
+
+nnoremap ,tv :call VsplitTerm()<cr>
+nnoremap ,ts :call SplitTerm()<cr>
 nnoremap ,f :Denite file_mru<cr><esc>
 nnoremap ,b :Denite buffer<cr><esc>
 nnoremap ,l :Denite file<cr><esc>
@@ -174,14 +185,13 @@ command! R source ~/.config/nvim/init.vim
 " let g:neoterm_position = 'horizontal'
 " let g:neoterm_automap_keys = ',tt'
 
-tnoremap <silent> <ESC> <C-\><C-n>
-
 " Ctrl + O : switch the terminal mode to normal mode
 " tnoremap <silent> <C-o> <C-\><C-n>
 tnoremap <C-w>h <C-\><C-N><C-w>h
 tnoremap <C-w>j <C-\><C-N><C-w>j
 tnoremap <C-w>k <C-\><C-N><C-w>k
 tnoremap <C-w>l <C-\><C-N><C-w>l
+tnoremap <C-w>n <C-\><C-n>
 " C-z : to background
 " tnoremap <C-z> <C-\><C-N><C-z>
 " tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
