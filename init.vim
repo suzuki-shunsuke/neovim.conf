@@ -1,4 +1,3 @@
-"dein Scripts-----------------------------
 if &compatible
   set nocompatible " Be iMproved
 endif
@@ -18,32 +17,55 @@ augroup END
 " $ pip install neovim jedi
 let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim/bin/python'
 
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/vim-plug')
 
-" Required:
-set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
+" Make sure you use single quotes
 
-" Required:
-if dein#load_state('~/.local/share/dein')
-  call dein#begin('~/.local/share/dein')
-  let s:toml_dir = '~/.config/nvim/'
-  call dein#load_toml(s:toml_dir . 'dein.toml', {'lazy': 0})
-  call dein#load_toml(s:toml_dir . 'dein_lazy.toml', {'lazy': 1})
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'kassio/neoterm'
+Plug 'itchyny/lightline.vim'
+Plug 'mattn/webapi-vim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neomru.vim'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'altercation/vim-colors-solarized'
+" https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'natebosch/vim-lsc'
+" https://qiita.com/takaakikasai/items/0d617b6e0aed490dff35
+Plug 'rickhowe/diffchar.vim'
+Plug 'mattn/vim-lsp-settings'
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" On-demand loading
+Plug 'mattn/vim-goimports', { 'for': 'go' }
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+" Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+" Plug 'Shougo/deoplete-rct', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+
+" Initialize plugin system
+call plug#end()
 
 " Required:
 filetype plugin indent on
 syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
 
 " solarized
 set background=dark
@@ -58,7 +80,6 @@ set hidden  " allow not to save the buffer before switch the buffer
 
 " disable to switch the mode when select with the mouse
 set mouse-=a
-
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
@@ -104,28 +125,52 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
+function! VsplitTerm()
+  vsplit term://zsh
+  set nonumber
+endfunction
+
+function! SplitTerm()
+  split term://zsh
+  set nonumber
+endfunction
+
+nnoremap ,tv :call VsplitTerm()<cr>
+nnoremap ,ts :call SplitTerm()<cr>
 nnoremap ,f :Denite file_mru<cr><esc>
 nnoremap ,b :Denite buffer<cr><esc>
 nnoremap ,l :Denite file<cr><esc>
 nnoremap ,/ :Denite grep<cr>
 nnoremap ,jq :%!jq '.'<cr>
+nnoremap ,g :LspDefinition<cr>
 " " nnoremap ,d :Denite -mode=normal directory_mru<cr>
 " nnoremap ,g :Denite -mode=normal ghq<cr>
 
 " define the command to reload init.vim
 command! R source ~/.config/nvim/init.vim
 
+" require https://github.com/wting/autojump
+command! -nargs=1 J exe "cd " . system("jump cd <args>")
+
+" require https://github.com/x-motemen/ghq
+" require https://github.com/junegunn/fzf.vim
+" https://qiita.com/yysaki/items/fb1cbca8933c6080ebb6
+command! -nargs=0 Ghq call fzf#run({
+\ 'source': 'ghq list --full-path',
+\ 'sink': 'cd'
+\ })
+
 " deoplete-jedi
 " https://github.com/zchee/deoplete-jedi#options
-let g:deoplete#sources#jedi#python_path = $PYENV_ROOT . '/versions/neovim/bin/python'
+" let g:deoplete#sources#jedi#python_path = $PYENV_ROOT . '/versions/neovim/bin/python'
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " deoplete key mapping
-inoremap <silent><expr><Up>     pumvisible() ? "\<C-p>"  : "\<Up>"
-inoremap <silent><expr><Down>   pumvisible() ? "\<C-n>"  : "\<Down>"
-inoremap <silent><expr><Tab>    pumvisible() ? deoplete#close_popup() : "\<Tab>"
+" inoremap <silent><expr><Up>     pumvisible() ? "\<C-p>"  : "\<Up>"
+" inoremap <silent><expr><Down>   pumvisible() ? "\<C-n>"  : "\<Down>"
+" inoremap <silent><expr><Tab>    pumvisible() ? deoplete#close_popup() : "\<Tab>"
 
 " neoterm
 " let g:neoterm_position = 'horizontal'
@@ -133,10 +178,11 @@ inoremap <silent><expr><Tab>    pumvisible() ? deoplete#close_popup() : "\<Tab>"
 
 " Ctrl + O : switch the terminal mode to normal mode
 " tnoremap <silent> <C-o> <C-\><C-n>
-" tnoremap <C-w>h <C-\><C-N><C-w>h
-" tnoremap <C-w>j <C-\><C-N><C-w>j
-" tnoremap <C-w>k <C-\><C-N><C-w>k
-" tnoremap <C-w>l <C-\><C-N><C-w>l
+tnoremap <C-w>h <C-\><C-N><C-w>h
+tnoremap <C-w>j <C-\><C-N><C-w>j
+tnoremap <C-w>k <C-\><C-N><C-w>k
+tnoremap <C-w>l <C-\><C-N><C-w>l
+tnoremap <C-w>n <C-\><C-n>
 " C-z : to background
 " tnoremap <C-z> <C-\><C-N><C-z>
 " tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
@@ -175,10 +221,12 @@ nnoremap <S-Left>  <C-w>><CR>
 nnoremap <S-Right> <C-w><<CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
+nnoremap <C-p> "*p
+inoremap <C-p> <C-r>*
+inoremap <C-v> <C-r>*
 
 " gtags
 " nnoremap <C-s> :Gtags
-
 " jedi-vim
 " let g:jedi#completions_command = '<Tab>'
 " let g:jedi#popup_select_first = 0
@@ -202,9 +250,6 @@ nnoremap <S-Down>  <C-w>+<CR>
 " markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
-
-" vim-go
-let g:go_fmt_options = '-s'
 
 " diff color settings
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
@@ -232,3 +277,6 @@ endif
 " go lsp
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
 let g:lsp_async_completion = 1
+
+" https://github.com/rust-lang/rust.vim
+let g:rustfmt_autosave = 1
