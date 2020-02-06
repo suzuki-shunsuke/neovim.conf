@@ -44,6 +44,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'natebosch/vim-lsc'
 " https://qiita.com/takaakikasai/items/0d617b6e0aed490dff35
 Plug 'rickhowe/diffchar.vim'
+Plug 'mattn/vim-lsp-settings'
 
 " On-demand loading
 Plug 'mattn/vim-goimports', { 'for': 'go' }
@@ -58,6 +59,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Initialize plugin system
 call plug#end()
@@ -163,6 +165,7 @@ nnoremap ,b :Denite buffer<cr><esc>
 nnoremap ,l :Denite file<cr><esc>
 nnoremap ,/ :Denite grep<cr>
 nnoremap ,jq :%!jq '.'<cr>
+nnoremap ,g :LspDefinition<cr>
 " " nnoremap ,d :Denite -mode=normal directory_mru<cr>
 " nnoremap ,g :Denite -mode=normal ghq<cr>
 
@@ -272,7 +275,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 
 " vim-go
-let g:go_fmt_options = '-s'
+" let g:go_fmt_options = '-s'
 
 " diff color settings
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
@@ -300,3 +303,6 @@ endif
 " go lsp
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
 let g:lsp_async_completion = 1
+
+" https://github.com/rust-lang/rust.vim
+let g:rustfmt_autosave = 1
