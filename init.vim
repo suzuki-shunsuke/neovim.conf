@@ -183,6 +183,8 @@ tnoremap <C-w>j <C-\><C-N><C-w>j
 tnoremap <C-w>k <C-\><C-N><C-w>k
 tnoremap <C-w>l <C-\><C-N><C-w>l
 tnoremap <C-w>n <C-\><C-n>
+tnoremap <C-n> <C-\><C-n>
+tnoremap <C-p> <C-\><C-n>Pi
 " C-z : to background
 " tnoremap <C-z> <C-\><C-N><C-z>
 " tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
