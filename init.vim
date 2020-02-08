@@ -138,9 +138,9 @@ endfunction
 nnoremap ,tv :call VsplitTerm()<cr>
 nnoremap ,ts :call SplitTerm()<cr>
 nnoremap ,f :Denite file_mru<cr><esc>
-nnoremap ,b :Denite buffer<cr><esc>
-nnoremap ,l :Denite file<cr><esc>
-nnoremap ,/ :Denite grep<cr>
+" nnoremap ,b :Buffers<cr>
+" nnoremap ,l :Files<cr>
+" nnoremap ,/ :Ag<cr>
 nnoremap ,jq :%!jq '.'<cr>
 nnoremap ,g :LspDefinition<cr>
 " " nnoremap ,d :Denite -mode=normal directory_mru<cr>
