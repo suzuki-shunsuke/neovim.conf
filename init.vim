@@ -22,6 +22,15 @@ let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim/bin/python'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/vim-plug')
 
+
+" https://github.com/dense-analysis/ale#2iii-completion
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+"
+" You should not turn this setting on if you wish to use ALE as a completion
+" source for other completion plugins, like Deoplete.
+let g:ale_completion_enabled = 1
+
 " Make sure you use single quotes
 
 Plug '/usr/local/opt/fzf'
@@ -36,14 +45,15 @@ Plug 'tpope/vim-surround'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'altercation/vim-colors-solarized'
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'natebosch/vim-lsc'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'natebosch/vim-lsc'
 " https://qiita.com/takaakikasai/items/0d617b6e0aed490dff35
-Plug 'rickhowe/diffchar.vim'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'rickhowe/diffchar.vim'
+" Plug 'mattn/vim-lsp-settings'
+Plug 'dense-analysis/ale'
 
 " On-demand loading
 Plug 'mattn/vim-goimports', { 'for': 'go' }
@@ -135,14 +145,24 @@ function! SplitTerm()
   set nonumber
 endfunction
 
+function! s:breload()
+  let l:p = expand("%:p")
+  bdelete
+  exe "vsplit " . l:p
+endfunction
+
+command! Breload call s:breload()
+
 nnoremap ,tv :call VsplitTerm()<cr>
 nnoremap ,ts :call SplitTerm()<cr>
 nnoremap ,f :Denite file_mru<cr><esc>
-" nnoremap ,b :Buffers<cr>
+nnoremap ,b :Denite buffer<cr><esc>
 " nnoremap ,l :Files<cr>
 " nnoremap ,/ :Ag<cr>
 nnoremap ,jq :%!jq '.'<cr>
-nnoremap ,g :LspDefinition<cr>
+" nnoremap ,g :LspDefinition<cr>
+nnoremap ,g :ALEGoToDefinition<cr>
+
 " " nnoremap ,d :Denite -mode=normal directory_mru<cr>
 " nnoremap ,g :Denite -mode=normal ghq<cr>
 
@@ -268,17 +288,33 @@ let g:terraform_fmt_on_save = 1
 " https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Go
 " vim-lsp gopls
 if executable('gopls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'gopls',
-    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-    \ 'whitelist': ['go'],
-    \ })
+  " au User lsp_setup call lsp#register_server({
+  "   \ 'name': 'gopls',
+  "   \ 'cmd': {server_info->['gopls']},
+  "   \ 'whitelist': ['go'],
+  "   \ })
   " autocmd BufWritePre *.go LspDocumentFormatSync
+  " https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vim-lsp
+"   augroup LspGo
+"     au!
+"     autocmd User lsp_setup call lsp#register_server({
+"         \ 'name': 'go-lang',
+"         \ 'cmd': {server_info->['gopls']},
+"         \ 'whitelist': ['go'],
+"         \ })
+"     autocmd FileType go setlocal omnifunc=lsp#complete
+"     "autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+"     "autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
+"     "autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
+"   augroup END
+  let g:ale_linters = {
+	\ 'go': ['gopls'],
+	\}
 endif
 
 " go lsp
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
-let g:lsp_async_completion = 1
+" let g:lsp_async_completion = 1
 
 " https://github.com/rust-lang/rust.vim
 let g:rustfmt_autosave = 1
