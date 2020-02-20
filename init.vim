@@ -198,11 +198,11 @@ command! -nargs=0 Ghq call fzf#run({
 
 " Ctrl + O : switch the terminal mode to normal mode
 " tnoremap <silent> <C-o> <C-\><C-n>
-tnoremap <C-w>h <C-\><C-N><C-w>h
-tnoremap <C-w>j <C-\><C-N><C-w>j
-tnoremap <C-w>k <C-\><C-N><C-w>k
-tnoremap <C-w>l <C-\><C-N><C-w>l
-tnoremap <C-w>n <C-\><C-n>
+" tnoremap <C-w>h <C-\><C-N><C-w>h
+" tnoremap <C-w>j <C-\><C-N><C-w>j
+" tnoremap <C-w>k <C-\><C-N><C-w>k
+" tnoremap <C-w>l <C-\><C-N><C-w>l
+" tnoremap <C-w>n <C-\><C-n>
 tnoremap <C-n> <C-\><C-n>
 tnoremap <C-p> <C-\><C-n>Pi
 " C-z : to background
