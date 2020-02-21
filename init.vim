@@ -69,6 +69,8 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 " Initialize plugin system
 call plug#end()
