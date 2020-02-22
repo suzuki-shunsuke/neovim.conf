@@ -71,6 +71,7 @@ Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
@@ -320,3 +321,7 @@ endif
 
 " https://github.com/rust-lang/rust.vim
 let g:rustfmt_autosave = 1
+
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-open)
+vmap gx <Plug>(openbrowser-open)
