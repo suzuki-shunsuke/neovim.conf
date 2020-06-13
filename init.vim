@@ -56,7 +56,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'dense-analysis/ale'
 
 " On-demand loading
-Plug 'mattn/vim-goimports', { 'for': 'go' }
+" Plug 'mattn/vim-goimports', { 'for': 'go' }
 " Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 " Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
@@ -71,7 +71,8 @@ Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
+Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
 " Initialize plugin system
 call plug#end()
@@ -161,10 +162,12 @@ nnoremap ,ts :call SplitTerm()<cr>
 nnoremap ,f :Denite file_mru<cr><esc>
 nnoremap ,b :Denite buffer<cr><esc>
 " nnoremap ,l :Files<cr>
-" nnoremap ,/ :Ag<cr>
+nnoremap ,/ :Denite grep<cr>
 nnoremap ,jq :%!jq '.'<cr>
 " nnoremap ,g :LspDefinition<cr>
 nnoremap ,g :ALEGoToDefinition<cr>
+nnoremap ,n :ALENextWrap<cr>
+nnoremap ,ar :ALEResetBuffer<cr>
 
 " " nnoremap ,d :Denite -mode=normal directory_mru<cr>
 " nnoremap ,g :Denite -mode=normal ghq<cr>
@@ -311,9 +314,19 @@ if executable('gopls')
 "     "autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
 "   augroup END
   let g:ale_linters = {
-	\ 'go': ['gopls'],
+	\ 'go': ['gopls', 'gofmt', 'goimports', 'gosimple', 'golangci-lint'],
 	\}
 endif
+
+let g:ale_go_golangci_lint_package=1
+let g:ale_go_langserver_executable = 'gopls'
+let g:ale_go_golangci_lint_options = ''
+
+let g:ale_fixers = {
+\   'go': ['gofmt', 'goimports'],
+\}
+
+let g:ale_fix_on_save = 1
 
 " go lsp
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
