@@ -38,7 +38,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
 Plug 'itchyny/lightline.vim'
-Plug 'mattn/webapi-vim'
+" Plug 'mattn/webapi-vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neomru.vim'
 Plug 'tpope/vim-surround'
@@ -63,16 +63,16 @@ Plug 'dense-analysis/ale'
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " Plug 'Shougo/deoplete-rct', { 'for': 'ruby' }
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+" Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+" Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
+" Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 " Plug 'tpope/vim-fugitive'
-Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
+" Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
 
 " Initialize plugin system
 call plug#end()
