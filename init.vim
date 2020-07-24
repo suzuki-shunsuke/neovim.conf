@@ -33,7 +33,7 @@ let g:ale_completion_enabled = 1
 
 " Make sure you use single quotes
 
-Plug '/usr/local/opt/fzf'
+" Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
@@ -168,6 +168,9 @@ nnoremap ,jq :%!jq '.'<cr>
 nnoremap ,g :ALEGoToDefinition<cr>
 nnoremap ,n :ALENextWrap<cr>
 nnoremap ,ar :ALEResetBuffer<cr>
+
+" https://github.com/neovim/neovim/issues/11393#issuecomment-634454128
+cnoremap 3636 <c-u>undo<CR>
 
 " " nnoremap ,d :Denite -mode=normal directory_mru<cr>
 " nnoremap ,g :Denite -mode=normal ghq<cr>
