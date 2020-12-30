@@ -66,7 +66,7 @@ Plug 'dense-analysis/ale'
 " Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-" Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 " Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tyru/open-browser.vim'
@@ -161,7 +161,7 @@ nnoremap ,tv :call VsplitTerm()<cr>
 nnoremap ,ts :call SplitTerm()<cr>
 nnoremap ,f :Denite file_mru<cr><esc>
 nnoremap ,b :Denite buffer<cr><esc>
-" nnoremap ,l :Files<cr>
+nnoremap ,l :Files<cr>
 nnoremap ,/ :Denite grep<cr>
 nnoremap ,jq :%!jq '.'<cr>
 " nnoremap ,g :LspDefinition<cr>
