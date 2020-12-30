@@ -29,7 +29,7 @@ call plug#begin('~/.local/share/vim-plug')
 "
 " You should not turn this setting on if you wish to use ALE as a completion
 " source for other completion plugins, like Deoplete.
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
 
 " Make sure you use single quotes
 
@@ -53,7 +53,7 @@ Plug 'altercation/vim-colors-solarized'
 " https://qiita.com/takaakikasai/items/0d617b6e0aed490dff35
 " Plug 'rickhowe/diffchar.vim'
 " Plug 'mattn/vim-lsp-settings'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " On-demand loading
 " Plug 'mattn/vim-goimports', { 'for': 'go' }
@@ -316,20 +316,20 @@ if executable('gopls')
 "     "autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
 "     "autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
 "   augroup END
-  let g:ale_linters = {
-	\ 'go': ['gopls', 'gofmt', 'goimports', 'gosimple', 'golangci-lint'],
-	\}
+"   let g:ale_linters = {
+" 	\ 'go': ['gopls', 'gofmt', 'goimports', 'gosimple', 'golangci-lint'],
+" 	\}
 endif
 
-let g:ale_go_golangci_lint_package=1
-let g:ale_go_langserver_executable = 'gopls'
-let g:ale_go_golangci_lint_options = ''
+" let g:ale_go_golangci_lint_package=1
+" let g:ale_go_langserver_executable = 'gopls'
+" let g:ale_go_golangci_lint_options = ''
 
-let g:ale_fixers = {
-\   'go': ['gofmt', 'goimports'],
-\}
-
-let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+" \   'go': ['gofmt', 'goimports'],
+" \}
+" 
+" let g:ale_fix_on_save = 1
 
 " go lsp
 " https://mattn.kaoriya.net/software/lang/go/20181217000056.htm
