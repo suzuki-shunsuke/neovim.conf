@@ -67,6 +67,7 @@ Plug 'mattn/vim-goimports', { 'for': 'go' }
 " Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'jjo/vim-cue', { 'for': 'cue' }
 " Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tyru/open-browser.vim'
